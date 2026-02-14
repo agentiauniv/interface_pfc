@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniMate AI - Luxury Purple</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="assistant.css">
+    <script src="assistant.js"></script>
+
+</head>
+
+<body class="sidebar-visible">
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+        <div class="p-4 w-[260px]">
+            <button onclick="startNewChat()" class="btn-purple w-full p-2.5 rounded-xl font-semibold flex items-center justify-center gap-2 transition">
+                <span class="text-xl">+</span> New Chat
+            </button>
+        </div>
+        
+        <div class="flex-1 overflow-y-auto w-[260px] no-scrollbar">
+            <div class="px-5 text-[10px] text-purple-400 uppercase font-bold mb-4 tracking-widest opacity-70">Recent History</div>
+            <div id="history-list"></div>
+        </div>
+
+        <div class="p-4 border-t border-purple-900/30 mt-auto w-[260px]">
+            <button class="flex items-center gap-3 w-full p-2 rounded-xl hover:bg-white/5 transition-all text-left group">
+                <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-indigo-700 rounded-full flex items-center justify-center text-sm font-bold shadow-lg shrink-0 text-white">JD</div>
+                <div class="flex-1 overflow-hidden">
+                    <p class="text-sm font-semibold truncate text-gray-100">John Doe</p>
+                    <p class="text-[11px] text-purple-400/60 truncate">john.doe@uni.edu</p>
+                </div>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main -->
+    <main id="main-wrapper">
+
+        <button onclick="document.body.classList.toggle('sidebar-hidden')" class="absolute top-6 left-6 z-[200] p-2 hover:bg-purple-500/20 rounded-xl transition-all">
+            <svg width="24" height="24" fill="#a78bfa" viewBox="0 0 24 24">
+                <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+            </svg>
+        </button>
+
+        <div id="welcome" class="mt-[18vh] text-center px-4">
+            <h1 class="text-5xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-purple-400">
+                What's on your mind?
+            </h1>
+            <p class="text-purple-300/40 text-lg tracking-wide">
+                Your UniAcademic personal space.
+            </p>
+        </div>
+
+        <div id="chat-window"></div>
+
+        <div id="input-container" class="pos-mid">
+            <div id="suggestion-box" class="sug-below"></div>
+            <div class="glass-input flex rounded-2xl p-3 focus-within:border-purple-500/50 transition-all duration-300">
+                <input id="user-input" type="text" placeholder="Ask anything..." class="flex-1 bg-transparent outline-none text-white px-3 text-lg placeholder-purple-300/20" oninput="handleSearch()" autocomplete="off">
+                <button onclick="send()" class="btn-purple text-white px-7 py-2 rounded-xl font-bold transition">Send</button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- JS file -->
+    <script src="script.js"></script>
+</body>
+</html>
